@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace Radar
 {
@@ -23,9 +24,9 @@ namespace Radar
 
         }
 
-        public bool VerificarVelocidadInfractor()
-        {
-            //HACER
-        }
+        //public bool VerificarVelocidadInfractor()
+        //{
+            
+        //}
     }
 }

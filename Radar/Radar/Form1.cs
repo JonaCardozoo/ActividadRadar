@@ -16,5 +16,33 @@ namespace Radar
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            Form2 f = new Form2();
+            ControlRadar cr = new ControlRadar();
+
+            
+            listBox1.Items.Clear();
+            
+
+            
+
+            f.ShowDialog();
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            ControlRadar cr = new ControlRadar();   
+            listBox1.Items.Add(string.Format("Numero de patente:"));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

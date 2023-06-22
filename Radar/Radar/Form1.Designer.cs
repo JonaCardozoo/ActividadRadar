@@ -30,10 +30,10 @@ namespace Radar
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,14 +52,15 @@ namespace Radar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda de infractores por patente";
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Patente";
+            this.button1.Location = new System.Drawing.Point(283, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 59);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Buscar Infractor";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -69,14 +70,14 @@ namespace Radar
             this.textBox1.Size = new System.Drawing.Size(100, 35);
             this.textBox1.TabIndex = 1;
             // 
-            // button1
+            // label1
             // 
-            this.button1.Location = new System.Drawing.Point(283, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 59);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Buscar Infractor";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Patente";
             // 
             // listBox1
             // 
@@ -94,15 +95,17 @@ namespace Radar
             this.button2.TabIndex = 3;
             this.button2.Text = "Listar Infractores";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(270, 129);
+            this.button3.Location = new System.Drawing.Point(269, 129);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 59);
             this.button3.TabIndex = 4;
             this.button3.Text = "Registrar Vehiculo";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -114,6 +117,7 @@ namespace Radar
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
