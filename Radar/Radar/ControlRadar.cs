@@ -8,5 +8,14 @@ namespace Radar
 {
     internal class ControlRadar
     {
+        private Vehiculo[] infracciones;
+        public int CantidadVehiculo { get; private set; }
+
+
+
+        public void AgregarControl(string patente, double velocidad)
+        {
+            //HACER
+        }
     }
 }
