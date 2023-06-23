@@ -23,22 +23,32 @@ namespace Radar
             Form2 f = new Form2();
 
             ControlRadar cr = new ControlRadar();
-            string patente = Convert.ToString(f.textBox1.Text);
-            double velocidad = Convert.ToDouble(f.textBox2.Text);
 
-            bool esOficial = false;
-            if (f.radioButton1.Checked)
+            if(f.ShowDialog() == DialogResult.OK)
             {
-                 esOficial=true;
-            }
-            else
-            {
-                esOficial = false;
-            }
+                
+                string patente = Convert.ToString(f.textBox1.Text);
 
-            cr.AgregarControl(patente,velocidad,esOficial);
+                double velocidad = Convert.ToDouble(f.textBox2.Text);
+                bool esOficial = false;
+                Vehiculo v = new Vehiculo(patente, velocidad, esOficial);
+                if (f.radioButton1.Checked)
+                {
+                    
+                    esOficial = true;
+                }
+                else
+                {
+                    esOficial = false;
+                }
+                listBox1.Items.Add(v.Velocidad.ToString("00") + " - " + v.Patente);
 
-            f.ShowDialog();
+                
+                cr.AgregarControl(patente, velocidad, esOficial);
+            }
+            
+            f.Dispose();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
