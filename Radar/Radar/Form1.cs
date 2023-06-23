@@ -19,43 +19,18 @@ namespace Radar
             InitializeComponent();
         }
 
-        Vehiculo v = null;
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-            Form2 f = new Form2();
-
-
-            while (f.ShowDialog() == DialogResult.OK)
-            {
-                
-                string patente = Convert.ToString(f.textBox1.Text);
-
-                double velocidad = Convert.ToDouble(f.textBox2.Text);
-                
-                
-                bool esOficial = f.radioButton1.Checked;
-
-                
-                cr.AgregarControl(patente, velocidad, esOficial);
-                f.textBox1.Clear();
-                f.textBox2.Clear();
-                
-            }
-            
-            f.Dispose();
-            
-        }
-
+       
         private void button2_Click(object sender, EventArgs e)
         {
-           
-           double velocidad = 0;
-           string patente = "";
-           listBox1.Items.Add(velocidad.ToString("Velocidad: 00") + " - patente: " + patente);
 
+            for (int i = 0; i < cr.CantidadVehiculo; i++)
+            {
+                Vehiculo v = cr.VerVehiculosInfractores(1);
+
+                listBox1.Items.Add(string.Format("Velocidad " + v.Velocidad));
+            }
             
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,12 +41,36 @@ namespace Radar
 
             
             
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegistrar_Click_1(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+
+
+            while (f.ShowDialog() == DialogResult.OK)
+            {
+                bool esOficial = false;
+                string patente = Convert.ToString(f.textBox1.Text);
+
+                double velocidad = Convert.ToDouble(f.textBox2.Text);
+
+
+                esOficial = f.radioButton1.Checked;
+
+
+                cr.AgregarControl(patente, velocidad, esOficial);
+                f.textBox1.Clear();
+                f.textBox2.Clear();
+
+            }
+
+            f.Dispose();
         }
     }
 }

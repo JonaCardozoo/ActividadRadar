@@ -10,24 +10,26 @@ namespace Radar
     internal class ControlRadar
     {
         private Vehiculo[] infracciones = new Vehiculo[100];
-
         int i = 0;
 
         // public int CantidadVehiculo { get; private set; }
         public int CantidadVehiculo { get { return i; } } //me avivo y hago un getter largo
+
+        
 
         public void AgregarControl(string patente, double velocidad, bool esOficial)
         {
 
             Vehiculo vehiculo = new Vehiculo(patente, velocidad, esOficial);
 
-            if(vehiculo.VerificarVelocidadInfractor() == true)
+            if(esOficial == false &&  vehiculo.VerificarVelocidadInfractor() == true)
             {
                 infracciones[i] = vehiculo;
                 i++;
+               
             }
-            
 
+            
         }
 
         public Vehiculo VerVehiculosInfractores(int idx)
