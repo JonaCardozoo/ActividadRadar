@@ -11,17 +11,22 @@ namespace Radar
     {
         private Vehiculo[] infracciones = new Vehiculo[100];
 
-        int i=0;
-        
-        public int CantidadVehiculo { get; private set; }
+        int i = 0;
 
-        public void AgregarControl(string patente, double velocidad,bool esOficial)
+        // public int CantidadVehiculo { get; private set; }
+        public int CantidadVehiculo { get { return i; } } //me avivo y hago un getter largo
+
+        public void AgregarControl(string patente, double velocidad, bool esOficial)
         {
 
-            Vehiculo vehiculo = new Vehiculo(patente,velocidad,esOficial);
+            Vehiculo vehiculo = new Vehiculo(patente, velocidad, esOficial);
 
-            infracciones[i] = vehiculo;
-            i++;
+            if(vehiculo.VerificarVelocidadInfractor() == true)
+            {
+                infracciones[i] = vehiculo;
+                i++;
+            }
+            
 
         }
 
@@ -33,11 +38,11 @@ namespace Radar
         public void MetodoBurbuja()
         {
             Vehiculo t;
-            for (int a = 1; a < infracciones.Length-1; a++) //recorre todo el vector
+            for (int a = 0; a < CantidadVehiculo; a++) //recorre todo el vector
             {
-                for (int b = i+1; b < infracciones.Length; b++) //recorre todo el vector
+                for (int b = i+1; b < CantidadVehiculo; b++) //recorre todo el vector
                 {
-                    if (infracciones[a].Velocidad > infracciones[b].Velocidad)
+                    if (infracciones[a].Patente.CompareTo(infracciones[b].Patente)<0)
                     {
                         t = infracciones[a];
                         infracciones[a] = infracciones[b];
@@ -47,21 +52,23 @@ namespace Radar
             }
         }
 
-        public int BusquedaBinaria(int[] infracciones, int n,int clave)
+        public int BusquedaBinaria()
 
         {
+            int clave = 0;
+            int n = 0;
             int inf = 0;
             int sup = n, centro, pos = -1;
             while (inf <= sup && pos < 0)
             {
                 centro = (inf + sup) / 2;
-                if (infracciones[centro] == clave)
+                if (infracciones[centro].Patente.CompareTo(clave)<0)
                 {
                     pos = centro;
                 }
                 else
                 {
-                    if (clave > infracciones[centro])
+                    if (clave > infracciones[centro].Velocidad)
                     {
                         inf = centro + 1;
                     }

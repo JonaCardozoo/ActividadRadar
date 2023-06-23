@@ -89,6 +89,7 @@ namespace Radar
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button2.Location = new System.Drawing.Point(270, 194);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 61);
@@ -120,6 +121,7 @@ namespace Radar
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
