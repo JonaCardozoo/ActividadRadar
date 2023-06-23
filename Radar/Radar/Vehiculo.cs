@@ -24,9 +24,15 @@ namespace Radar
 
         }
 
-        //public bool VerificarVelocidadInfractor()
-        //{
-            
-        //}
+        public bool VerificarVelocidadInfractor()
+        {
+            bool Infractor = false;
+            if (Velocidad < 50 &&  Velocidad > 90)
+            {
+                Infractor = true;
+            }
+
+            return Infractor;
+        }
     }
 }

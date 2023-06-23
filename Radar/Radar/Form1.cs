@@ -19,25 +19,32 @@ namespace Radar
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            
             Form2 f = new Form2();
+
             ControlRadar cr = new ControlRadar();
+            string patente = Convert.ToString(f.textBox1.Text);
+            double velocidad = Convert.ToDouble(f.textBox2.Text);
 
-            
-            listBox1.Items.Clear();
-            
+            bool esOficial = false;
+            if (f.radioButton1.Checked)
+            {
+                 esOficial=true;
+            }
+            else
+            {
+                esOficial = false;
+            }
 
-            
+            cr.AgregarControl(patente,velocidad,esOficial);
 
             f.ShowDialog();
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             
-            ControlRadar cr = new ControlRadar();   
-            listBox1.Items.Add(string.Format("Numero de patente:"));
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

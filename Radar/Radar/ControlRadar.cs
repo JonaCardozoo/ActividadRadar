@@ -37,7 +37,7 @@ namespace Radar
             {
                 for (int b = i+1; b < infracciones.Length; b++) //recorre todo el vector
                 {
-                    if (infracciones[a].Velocidad.CompareTo(infracciones[b].Velocidad) > 1)
+                    if (infracciones[a].Velocidad > infracciones[b].Velocidad)
                     {
                         t = infracciones[a];
                         infracciones[a] = infracciones[b];
@@ -73,10 +73,6 @@ namespace Radar
             }
             return pos;
         }
-
-
-
-
 
     }
 }
