@@ -9,6 +9,8 @@ namespace Radar
 {
     internal class ControlRadar
     {
+       
+
         private Vehiculo[] infracciones = new Vehiculo[100];
         int i = 0;
 
@@ -44,7 +46,7 @@ namespace Radar
             {
                 for (int b = i+1; b < CantidadVehiculo; b++) //recorre todo el vector
                 {
-                    if (infracciones[a].Patente.CompareTo(infracciones[b].Patente)<0)
+                    if (infracciones[a].Patente.CompareTo(infracciones[b].Patente)>0)
                     {
                         t = infracciones[a];
                         infracciones[a] = infracciones[b];
@@ -54,34 +56,33 @@ namespace Radar
             }
         }
 
-        public int BusquedaBinaria()
-
+        public int BusquedaBinaria(string clave)
         {
-            int clave = 0;
-            int n = 0;
-            int inf = 0;
-            int sup = n, centro, pos = -1;
-            while (inf <= sup && pos < 0)
-            {
-                centro = (inf + sup) / 2;
-                if (infracciones[centro].Patente.CompareTo(clave)<0)
+                int n = 0;
+                int inf = 0;
+                int sup = n, centro, pos = -1;
+                while (inf <= sup && pos < 0)
                 {
-                    pos = centro;
-                }
-                else
-                {
-                    if (clave > infracciones[centro].Velocidad)
+                    centro = (inf + sup) / 2;
+                    if (infracciones[centro].Patente.CompareTo(clave)>0)
                     {
-                        inf = centro + 1;
+                        pos = centro;
                     }
                     else
                     {
-                        sup = centro - 1;
+                        if (clave.CompareTo(infracciones[centro].Patente)>0)
+                            
+                        {
+                            inf = centro + 1;
+                        }
+                        else
+                        {
+                            sup = centro - 1;
+                        }
                     }
                 }
+                return pos;
             }
-            return pos;
+        
         }
-
     }
-}

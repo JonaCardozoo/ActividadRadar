@@ -22,25 +22,31 @@ namespace Radar
        
         private void button2_Click(object sender, EventArgs e)
         {
-
+            listBox1.Items.Clear();
             for (int i = 0; i < cr.CantidadVehiculo; i++)
             {
-                Vehiculo v = cr.VerVehiculosInfractores(1);
+                Vehiculo v = cr.VerVehiculosInfractores(i);
 
-                listBox1.Items.Add(string.Format("Velocidad " + v.Velocidad));
+                listBox1.Items.Add(string.Format("Velocidad " + v.Velocidad + " Patente: " + v.Patente) );
             }
             
-           
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
-
-            string patente = Convert.ToString(f.textBox1.Text);
-
             
+            string patente = textBox1.Text;
             
+            cr.MetodoBurbuja();
+            int pos = cr.BusquedaBinaria(patente);
+            if (pos >= 0)
+            {
+                
+                listBox1.Items.Add(string.Format("Patente: " + cr.VerVehiculosInfractores(pos).Patente));
+            }
+            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
